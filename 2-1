@@ -1,0 +1,54 @@
+例子 输入 
+6   
+1   
+2 
+2 
+2 
+3 
+5 
+
+例子 输出 
+众数是2
+重数是3
+#include "stdio.h"
+int main()
+{
+ int i,n,o,s[100],min,mi,j=0,l,m,k=0;
+ while(scanf("%d",&n)!=EOF)//输入有多少个数，EOF输入没有结束
+ {
+  for(i=1;i<=n;i++)
+   scanf("%d",&s[i]);//输入每个数字
+     for(i=1;i<=n-1;i++)
+     {
+   min=s[i];
+      for(o=i;o<=n;o++)
+      {
+       if(s[o]    {
+     min=s[o];
+     mi=o;
+    }
+   }
+   s[mi]=s[i];
+   s[i]=min;
+  }
+  for(i=1;i<=n;i++)  {
+   for(j=i+1;j<=n;j++)
+   {
+    l=0;
+    if(s[i]==s[j])
+    {
+     l++;
+    }
+    else
+     break;
+   }
+   if(l>k)//若l>k则把l的值带进k
+   {
+    k=l;
+    m=s[i];
+   }
+  }
+ }
+ printf("众数是:%d\n重数是:%d\n",m,k);//显示重复个数最多的数，以及显示重复了多少次
+ return 0;//结束
+}
